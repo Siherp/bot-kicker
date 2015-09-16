@@ -9,10 +9,9 @@ end
 client = Slack::RealTime::Client.new
 puts "Starting kicker-bot"
 puts "Channel: #{ENV['CHANNEL']}"
-puts "User: #{ENV['USER']}"
+puts "Phil: #{ENV['PHIL']}"
 
 client.on :message do |data|
-  puts data
   kick_user(client, data) if data['channel'] == ENV['CHANNEL'] && data['subtype'] == 'group_join' && data['user'] == ENV['PHIL']
 end
 
