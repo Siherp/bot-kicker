@@ -14,6 +14,7 @@ client.on :message do |data|
 end
 
 def kick_user(client, data)
+  puts "Kicking Phil"
   client.web_client.chat_postMessage({channel: ENV['CHANNEL'], text: "I don't think <@#{data['user']}> wants to do pushups anymore."})
   client.web_client.chat_postMessage({channel: ENV['CHANNEL'], text: 'Kicking him in: '})
   (1..3).to_a.reverse.each do |num|
